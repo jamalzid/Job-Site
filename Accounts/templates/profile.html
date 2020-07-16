@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load bootstrap4%}
+{% block content %}
+<!-- bradcam_area  -->
+<div class="bradcam_area bradcam_bg_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text">
+                    <h3>Your Profile</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ bradcam_area  -->
+
+<div class="job_details_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="job_sumary">
+                    <div class="summery_header">
+                        <div class="job_details_header">
+                            <div class="single_jobs white-bg d-flex justify-content-between">
+                                <div class="jobs_left d-flex align-items-center">
+                                    <div class="thumb">
+                                        {% if user.profile.image %}
+                                        <img src="{{p.image.url}} " alt=""
+                                            style="margin-left: -15px;height: 83px; weight: 37px;width: 81px;margin-top: -16px;">
+                                        {% else %}
+                        
+                                        <img src="https://i.pinimg.com/474x/80/db/20/80db20fd3bb1d86ce32c2aec8c901efe.jpg" alt=""
+                                            style="margin-left: -15px;height: 83px; weight: 37px;width: 81px;margin-top: -16px;">
+                        
+                                        {% endif %}
+                        
+                                    </div>
+
+                                    <h3>{{p.user.first_name}} {{p.user.last_name}}</h3>
+                                </div>
+                            </div>
+                            <div class="single_jobs white-bg d-flex justify-content-between"></div>
+                                <div class="job_content">
+                                    <ul>
+                                        <li>username: <span>{{p.user}}</span></li>
+                                        <li>full name: <span>{{p.user.first_name}} {{p.user.last_name}}</span></li>
+                                        <li>email: <span>{{p.user.email}}</span></li>
+                                        <li>phone: <span>{{p.phone}}</span></li>
+                                        <li>adrrese: <span>{{p.address}}</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="single_jobs white-bg d-flex justify-content-between"></div>
+                                <div class="descript_wrap white-bg">
+                                    <div class="single_wrap">
+                                
+                                        <h4>Your biographie</h4>
+                                        <p>{{p.biographie}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="boxed-btn3 w-100" href="{% url 'Accounts:edite_profile' %}">Edite profile</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content%}

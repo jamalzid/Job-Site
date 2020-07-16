@@ -19,7 +19,10 @@ from django.contrib import admin
 from django.urls import path,include
 
 urlpatterns = [
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('Accounts.urls', namespace='Accounts')),
     path('admin/', admin.site.urls),
+    path('', include('Contact.urls', namespace='Contact')),
     path('',include('Job.urls',namespace='Job')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

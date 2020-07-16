@@ -1,0 +1,46 @@
+{% extends 'base.html '%}
+{% load bootstrap4 %}
+
+{% block content%}
+
+
+<!-- bradcam_area  -->
+<div class="bradcam_area bradcam_bg_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text">
+                    <h3>Edite your profile</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ bradcam_area  -->
+
+<div class="job_details_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-11 mx-auto">
+
+                <div class="apply_job_form white-bg">
+                    <h4><strong>Add job</strong></h4>
+                    <form method="POST" class="form" enctype="multipart/form-data" action="">
+                        {% csrf_token %}
+                        
+                        {% bootstrap_form p_form %}
+                        {% buttons %}
+                        <a href="{% url 'password_change' %} " type="submit" class="boxed-btn3 w-100">Change password</a>
+                        <hr>
+                        <button type="submit" class="boxed-btn3 w-100">Save</button>
+
+                        {% endbuttons %}
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content%}

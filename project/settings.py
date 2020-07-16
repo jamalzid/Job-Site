@@ -30,14 +30,21 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
-    'django.contrib.admin',
+INSTALLED_APPS = [ 
+    'Accounts',
     'django.contrib.auth',
+
+    'django.contrib.admin',
+   
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Job',
+    'Contact',
+    'bootstrap4',
+    'django_filters',
+    
 ]
 
 MIDDLEWARE = [
@@ -127,3 +134,4 @@ MEDIA_URL = '/media/'
 MEDIAFILES_DIRS = [
     os.path.join(BASE_DIR, "media"),
 ]
+LOGIN_REDIRECT_URL = '/'

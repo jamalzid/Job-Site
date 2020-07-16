@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load bootstrap4%}
+{% block content %}
+
+<div class="bradcam_area bradcam_bg_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text">
+                    <h3>Login</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10">
+                {% if form.errors %}
+                <p>Your username and password didn't match. Please try again.</p>
+                {% endif %}
+
+                {% if next %}
+                {% if user.is_authenticated %}
+                <p>Your account doesn't have access to this page. To proceed,
+                    please login with an account that has access.</p>
+                {% else %}
+                <p>Please login to see this page.</p>
+                {% endif %}
+                {% endif %}
+                <form method="post" class="form" enctype="multipart/form-data" >
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <button type="submit" class="boxed-btn3 w-100">Login</button>
+                    <br>
+                    <br>
+                </form>
+                <div class="row">
+                    {# Assumes you setup the password_reset view in your URLconf #}
+                    <a class="boxed-btn3 w-100" href="{% url 'password_reset' %}">Lost password?</a>
+                </div>
+            </div>
+        </div>
+
+     </div>
+</div>
+
+{% endblock %}
