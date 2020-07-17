@@ -35,6 +35,7 @@ class Apply(models.Model):
     website=models.URLField(max_length=200)
     cv=models.FileField(upload_to='media/cv/')
     letter=models.TextField()
+    apply_at=models.DateTimeField(auto_now_add=True)
 
 
     def __str__(self):

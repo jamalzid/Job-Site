@@ -8,7 +8,7 @@ class Profile(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     first_name=models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    email = models.EmailField(unique=True)
+    email = models.EmailField()
     phone = models.CharField(max_length=100)
     address = models.CharField(max_length=200)
     biographie=models.TextField()

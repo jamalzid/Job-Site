@@ -11,4 +11,5 @@ class ApplyForm(forms.ModelForm):
     class Meta:
         model=Apply
         fields='__all__'
-        exclude=('job',)
+        exclude = ('job',)
+

@@ -9,7 +9,7 @@ admin.site.register(Job,JobAdmin)
 
 
 class ApplyAdmin(admin.ModelAdmin):
-    list_display = ['full_name', 'email']
+    list_display = ['full_name', 'email', 'apply_at']
 
 
 admin.site.register(Apply, ApplyAdmin)

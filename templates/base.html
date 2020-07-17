@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{% static 'css/gijgo.css'%}">
     <link rel="stylesheet" href="{% static 'css/animate.min.css'%}">
     <link rel="stylesheet" href="{% static 'css/slicknav.css'%}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css'%}">
 
     <link rel="stylesheet" href="{% static 'css/stylee.css'%}">
     <!-- <link rel="stylesheet" href="{% static 'css/responsive.css'%}"> -->
@@ -62,7 +63,7 @@
                                                 </ul>
                                             </li>
                                             
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="{% url 'Contact:contact' %}">Contact</a></li>
                                             <li><a href="#">{{user.get_username}} <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
                                                     <li><a href="{% url 'Accounts:profile'%}?next={{request.path}}">Profile</a></li>
@@ -251,7 +252,10 @@
     <script src="{% static 'js/pluginsdd'%}"></script>
     <script src="{% static 'js/gijgo.mindd'%}"></script>
     
-    
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <!-- <script src="{% static 'js/gijgo.min.js' %}"></script> -->
+    <script src="{% static 'js/range.js' %}"></script>
     
     <!--contact js-->
     <script src="{% static 'js/contactdd'%}"></script>
@@ -260,7 +264,7 @@
     <script src="{% static 'js/jquery.validate.mindd'%}"></script>
     <script src="{% static 'js/mail-scriptdd'%}"></script>
     
-    
+    <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/maindd'%}"></script>
     </body>
     
