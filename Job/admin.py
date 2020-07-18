@@ -13,3 +13,4 @@ class ApplyAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Apply, ApplyAdmin)
+admin.site.register(Comment)

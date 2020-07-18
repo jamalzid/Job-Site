@@ -28,16 +28,25 @@ class Job(models.Model):
         return self.title
 
 
-class Apply(models.Model):
-    job=models.ForeignKey(Job,on_delete=models.CASCADE)
-    full_name = models.CharField(max_length=200)
+class Comment(models.Model):
+    full_name=models.CharField(max_length=150)
     email=models.EmailField()
-    website=models.URLField(max_length=200)
-    cv=models.FileField(upload_to='media/cv/')
-    letter=models.TextField()
-    apply_at=models.DateTimeField(auto_now_add=True)
-
-
+    comment=models.TextField()
+    published_at=models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.full_name
 
+
+
+
+class Apply(models.Model):
+    job = models.ForeignKey(Job,on_delete=models.CASCADE)
+    full_name = models.CharField(max_length=200)
+    email = models.EmailField()
+    website = models.URLField(max_length=200)
+    cv = models.FileField(upload_to='media/cv/')
+    letter = models.TextField()
+    apply_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.full_name

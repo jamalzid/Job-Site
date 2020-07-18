@@ -8,7 +8,7 @@ from .filters import ProductFilter
 
 
 def job_list(request):
-    jobs=Job.objects.all()
+    jobs = Job.objects.all().order_by('-published_at')
     filter = ProductFilter(request.GET, queryset=jobs)
     jobs=filter.qs
     paginator=Paginator(jobs, 10)
@@ -23,6 +23,24 @@ def job_list(request):
 
 def job(request,id):
     job=get_object_or_404(Job,id=id)
+    comments=Comment.objects.all()
+    if request.method == 'POST':
+        form = commentform(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect("/")
+    else:
+        form = commentform()
+    context = {
+        'form': form,
+        'job': job,
+        'comments': comments,
+    }
+    return render(request, 'job_details.html', context)
+
+
+def apply(request, id):
+    job = get_object_or_404(Job, id=id)
     if request.method == 'POST':
         form = ApplyForm(request.POST, request.FILES)
         if form.is_valid():
@@ -36,7 +54,9 @@ def job(request,id):
         'form': form,
         'job': job,
     }
-    return render(request, 'job_details.html', context)
+    return render(request, 'apply.html', context)
+
+
 
 
 @login_required

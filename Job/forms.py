@@ -13,3 +13,8 @@ class ApplyForm(forms.ModelForm):
         fields='__all__'
         exclude = ('job',)
 
+class commentform(forms.ModelForm):
+    class Meta:
+        model=Comment
+        firlds='__all__'
+        exclude = ('published_at',)
